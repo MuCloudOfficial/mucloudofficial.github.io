@@ -15,7 +15,7 @@ import test from './components/test.vue'
         <button class="rounded-full w-40 h-10 mx-2 bg-gray-500 transition delay-10 duration-300 ease-in-out hover:bg-gray-400"><a href="https://github.com/MuCloudOfficial">GithubPage</a></button>
     </div>
     <footer class="w-full absolute bottom-0">
-        <p class="mx-auto text-center text-gray-300 text-base">Design by Mu_Cloud | MADE IN VOID LAND | Based on HTML & VUE & TailwindCSS | <a href="https://github.com/MuCloudOfficial/mucloudofficial.github.io">Page Source Code</a></p>
+        <p class="mx-auto text-center p-2 text-gray-300 text-sm">Design by Mu_Cloud | MADE IN VOID LAND | Based on HTML & VUE & TailwindCSS | <a class="underline" href="https://github.com/MuCloudOfficial/mucloudofficial.github.io">Page Source Code</a></p>
     </footer>
 </template>
 
