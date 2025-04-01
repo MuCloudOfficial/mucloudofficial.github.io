@@ -1,7 +1,7 @@
 {
   "name": "mucloudofficial.github.io",
   "private": true,
-  "version": "VoidLand V1 DEV.1",
+  "version": "VoidLand V2 DEV.4",
   "type": "module",
   "scripts": {
     "dev": "vite",
