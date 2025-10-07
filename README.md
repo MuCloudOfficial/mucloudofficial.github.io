@@ -4,11 +4,11 @@
 ---
 
 <div align="center">
-    <img alt="Static Badge" src="https://img.shields.io/badge/Vue-3.5.13-gray?style=flat&logo=vue.js&labelColor=black">
+    <img alt="Static Badge" src="https://img.shields.io/badge/Vue-3.5.22-gray?style=flat&logo=vue.js&labelColor=black">
     <img alt="Static Badge" src="https://img.shields.io/badge/Vite-7.1.5-gray?style=flat&logo=vite&labelColor=black">
-    <img alt="Static Badge" src="https://img.shields.io/badge/Tailwind_CSS-4.0.17-gray?style=flat&logo=tailwindcss&labelColor=black">
+    <img alt="Static Badge" src="https://img.shields.io/badge/Tailwind_CSS-4.1.14-gray?style=flat&logo=tailwindcss&labelColor=black">
     <img src="https://img.shields.io/badge/Release-VoidLand_V2-gray?style=flat&labelColor=black" alt=""/>
-    <img src="https://img.shields.io/badge/DEV-6-gray?style=flat&labelColor=red" alt=""/>
+    <img src="https://img.shields.io/badge/DEV-7-gray?style=flat&labelColor=red" alt=""/>
 </div>
 
 ---
