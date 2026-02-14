@@ -5,8 +5,8 @@ let onVisible = ref(false)
 let onMenu = ref(false)
 
 let subMenu = {
-    "MuProjectDoc": "https://mucloudofficial.github.io/MuCloudProjectDoc",
-    "MuBlog": "https://mucloudofficial.github.io/MuBlog"
+    "MuProjectDoc": "https://doc.muverse.ltd",
+    "MuBlog": "https://blog.muverse.ltd"
 }
 
 function handleSize(){
