@@ -1,13 +1,15 @@
-<script setup>
+<script setup lang="ts">
 import {onMounted, ref} from "vue";
+import {MUBLOG, MUPROJECTDOC} from "../shared/links";
+import {mulang} from "../shared/translation";
 
 let onVisible = ref(false)
 let onMenu = ref(false)
 
-let subMenu = {
-    "MuProjectDoc": "https://doc.muverse.ltd",
-    "MuBlog": "https://blog.muverse.ltd"
-}
+let subMenu = [
+  [mulang.muprojectdoc_name, MUPROJECTDOC],
+  [mulang.mublog_name, MUBLOG],
+]
 
 function handleSize(){
     onVisible.value = window.innerWidth <= 700;
@@ -21,10 +23,10 @@ onMounted(() => {
 
 <template>
     <nav class="flex content-center bg-transparent h-16 backdrop-blur-sm text-gray-500 dark:text-gray-400">
-        <a href="#" class="font-bold text-center content-center mx-10">MuCloud_Official</a>
+        <a href="#" class="font-bold text-center content-center mx-10">{{ mulang.title_name }}</a>
         <ul class="inline-flex content-center align-center justify-center mx-10" v-if="!onVisible">
-            <li class="my-auto mx-5" v-for="(k, v) in subMenu">
-                <a :href="k">{{ v }}</a>
+            <li class="my-auto mx-5" v-for="i in subMenu">
+                <a :href="i[1]">{{ i[0] }}</a>
             </li>
         </ul>
         <button class="ml-auto w-16" v-if="onVisible" @click.prevent="onMenu = !onMenu">
@@ -42,7 +44,3 @@ onMounted(() => {
 
 
 </template>
-
-<style scoped>
-
-</style>

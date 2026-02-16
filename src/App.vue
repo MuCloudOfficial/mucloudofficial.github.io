@@ -1,5 +1,7 @@
-<script setup>
+<script setup lang="ts">
 import Navigation from './components/Navigation.vue'
+import {MUBLOG, MUGITHUB, MUPROJECTDOC, REPO} from "./shared/links";
+import {mulang} from "./shared/translation";
 </script>
 
 <template>
@@ -9,15 +11,11 @@ import Navigation from './components/Navigation.vue'
     <h1 class="mx-auto text-center my-5 text-gray-300 text-3xl font-bold">Mu_Cloud</h1>
     <p class="mx-auto text-center text-gray-300 text-base">MuCloud_Official</p>
     <div class="mx-auto w-full flex flex-row items-center justify-center p-5">
-        <a href="https://blog.muverse.ltd" target="_blank"><button class="buttonBase">MuBlog</button></a>
-        <a href="https://doc.muverse.ltd" target="_blank"><button class="buttonBase">MuProjectDoc</button></a>
-        <a href="https://github.com/MuCloudOfficial" target="_blank"><button class="buttonBase">GithubPage</button></a>
+        <a :href="MUBLOG" target="_blank"><button class="buttonBase">{{ mulang.mublog_name }}</button></a>
+        <a :href="MUPROJECTDOC" target="_blank"><button class="buttonBase">{{ mulang.muprojectdoc_name }}</button></a>
+        <a :href="MUGITHUB" target="_blank"><button class="buttonBase">{{ mulang.mugithub_name }}</button></a>
     </div>
     <footer class="w-full absolute bottom-0">
-        <p class="mx-auto text-center p-2 text-gray-300 text-sm">Design by Mu_Cloud | MADE IN VOID LAND | Based on HTML & VUE & TailwindCSS | <a class="underline" href="https://github.com/MuCloudOfficial/mucloudofficial.github.io">Page Source Code</a></p>
+        <p class="mx-auto text-center p-2 text-gray-300 text-sm">{{ mulang.bottom_info }} <a class="underline" :href="REPO">{{ mulang.page_source_code }}</a></p>
     </footer>
 </template>
-
-<style scoped>
-
-</style>
