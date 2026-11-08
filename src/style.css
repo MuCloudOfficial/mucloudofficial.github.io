@@ -5,9 +5,10 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
+  color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
-  background-image: url("./assets/bg/bg.png");
+  background-color: #111827;
+  background-image: url("./assets/bg/bg.webp");
   background-position: 30% center;
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -19,13 +20,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body, #app {
+html,
+body,
+#app {
   height: 100%;
   width: 100%;
-
-  min-width: 450px;
 }
 
-.buttonBase{
-  @apply rounded-full w-40 h-10 mx-2 bg-gray-500 transition delay-10 duration-300 ease-in-out hover:bg-gray-400
+body {
+  overflow-x: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+.buttonBase {
+  @apply inline-flex h-10 items-center justify-center rounded-full bg-gray-500/90 px-4 text-sm text-gray-100 transition duration-300 ease-in-out hover:bg-gray-400/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-200 sm:w-40;
 }
