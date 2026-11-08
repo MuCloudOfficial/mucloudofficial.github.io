@@ -53,7 +53,7 @@ public/                favicon、apple-touch-icon、manifest、robots.txt、site
 
 ## 约定
 
-- 版本号写在 `package.json`（semver），徽章自动读它，不用手改
+- 版本号写在 `package.json`，格式 `X.Y.Z-代号`（跟 MuView 一致，这里的代号是 `VoidLand`），徽章自动读它，不用手改
 - 改完必须能过 `typecheck` 与 `lint`，否则 CI 不会部署
 - 图片一律 WebP，提交前先压过
 
