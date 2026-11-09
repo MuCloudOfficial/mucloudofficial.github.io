@@ -37,6 +37,23 @@ const langZh: Lang = {
 
 const STORAGE_KEY = 'mumu-lang'
 
+/** 存储读写一律包一层：隐私模式、存储被禁、配额满都可能抛错，不能让它掀翻整个页面 */
+function safeGet(key: string): string | null {
+  try {
+    return window.localStorage.getItem(key)
+  } catch {
+    return null
+  }
+}
+
+function safeSet(key: string, value: string): void {
+  try {
+    window.localStorage.setItem(key, value)
+  } catch {
+    // 存不进就算了，本次会话照常工作，只是下次打开要重新选
+  }
+}
+
 function normalize(raw: string | null | undefined): Locale | null {
   if (!raw) return null
   const code = raw.split('-')[0].toLowerCase()
@@ -46,10 +63,11 @@ function normalize(raw: string | null | undefined): Locale | null {
 }
 
 function detect(): Locale {
-  const saved = normalize(localStorage.getItem(STORAGE_KEY))
+  if (typeof window === 'undefined') return 'en'
+  const saved = normalize(safeGet(STORAGE_KEY))
   if (saved) return saved
   // 非中文一律落英文
-  return normalize(window.navigator.language) ?? 'en'
+  return normalize(window.navigator?.language) ?? 'en'
 }
 
 /** 响应式文案表：切换语言时整个模板会跟着重渲染 */
@@ -59,12 +77,15 @@ export const locale = ref<Locale>('en')
 function apply(next: Locale) {
   Object.assign(mulang, next === 'zh' ? langZh : langEn)
   locale.value = next
-  document.documentElement.lang = next === 'zh' ? 'zh-CN' : 'en'
+  if (typeof document !== 'undefined') {
+    document.documentElement.lang = next === 'zh' ? 'zh-CN' : 'en'
+  }
 }
 
 export function setLocale(next: Locale, persist = true) {
-  if (persist) localStorage.setItem(STORAGE_KEY, next)
+  // 先切界面，再谈持久化：存不进去也不该让按钮点了没反应
   apply(next)
+  if (persist) safeSet(STORAGE_KEY, next)
 }
 
 export function toggleLocale() {
