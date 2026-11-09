@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -25,7 +25,7 @@ body,
 body {
   overflow-x: hidden;
   /* 用 scroll 而不是 fixed：移动端 fixed 背景会触发重绘，iOS 上也不稳 */
-  background-image: url("./assets/bg/bg.webp");
+  background-image: url('./assets/bg/bg.webp');
   background-position: 30% center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -36,7 +36,7 @@ body {
  * 压一层半透明底色，正文在任何位置都能稳在 4.5:1 以上。
  */
 body::before {
-  content: "";
+  content: '';
   position: fixed;
   inset: 0;
   z-index: 0;
