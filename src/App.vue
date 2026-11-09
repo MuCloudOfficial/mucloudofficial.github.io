@@ -6,9 +6,20 @@ import { mulang } from './shared/translation'
 
 <template>
   <div class="flex min-h-dvh flex-col">
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-gray-900 focus:px-4 focus:py-2 focus:text-gray-50"
+    >
+      {{ mulang.skip_to_content }}
+    </a>
+
     <Navigation />
 
-    <main class="flex flex-1 flex-col items-center justify-center px-5 py-10">
+    <main
+      id="main"
+      tabindex="-1"
+      class="flex flex-1 flex-col items-center justify-center px-5 py-10"
+    >
       <img
         class="h-32 w-32 rounded-full"
         src="./assets/bg/icon.webp"
@@ -20,10 +31,21 @@ import { mulang } from './shared/translation'
       <h1 class="mt-5 text-center text-3xl font-bold text-gray-300">{{ mulang.display_name }}</h1>
       <p class="mt-1 text-center text-base text-gray-400">MuCloud_Official</p>
 
-      <div class="mt-6 grid w-full max-w-md grid-cols-2 gap-3 px-0 sm:flex sm:max-w-none sm:flex-wrap sm:justify-center">
-        <a class="buttonBase" :href="MUBLOG" target="_blank" rel="noopener">{{ mulang.mublog_name }}</a>
-        <a class="buttonBase" :href="MUPROJECTDOC" target="_blank" rel="noopener">{{ mulang.muprojectdoc_name }}</a>
-        <a class="buttonBase col-span-2 sm:col-span-1" :href="MUGITHUB" target="_blank" rel="noopener">
+      <div
+        class="mt-6 grid w-full max-w-md grid-cols-2 gap-3 px-0 sm:flex sm:max-w-none sm:flex-wrap sm:justify-center"
+      >
+        <a class="buttonBase" :href="MUBLOG" target="_blank" rel="noopener">{{
+          mulang.mublog_name
+        }}</a>
+        <a class="buttonBase" :href="MUPROJECTDOC" target="_blank" rel="noopener">{{
+          mulang.muprojectdoc_name
+        }}</a>
+        <a
+          class="buttonBase col-span-2 sm:col-span-1"
+          :href="MUGITHUB"
+          target="_blank"
+          rel="noopener"
+        >
           {{ mulang.mugithub_name }}
         </a>
       </div>
