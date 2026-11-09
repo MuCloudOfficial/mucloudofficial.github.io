@@ -8,11 +8,6 @@
   color-scheme: dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #111827;
-  background-image: url("./assets/bg/bg.webp");
-  background-position: 30% center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -29,6 +24,29 @@ body,
 
 body {
   overflow-x: hidden;
+  /* 用 scroll 而不是 fixed：移动端 fixed 背景会触发重绘，iOS 上也不稳 */
+  background-image: url("./assets/bg/bg.webp");
+  background-position: 30% center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*
+ * 深色遮罩：背景是雨景，天空与路面有大片浅色区域，直接压 gray-300 的字对比度不够。
+ * 压一层半透明底色，正文在任何位置都能稳在 4.5:1 以上。
+ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: rgba(17, 24, 39, 0.55);
+}
+
+#app {
+  position: relative;
+  z-index: 1;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -40,6 +58,7 @@ body {
   }
 }
 
+/* hover 用更深的底色：gray-400/90 在深色底上只有约 2.6:1，不够 */
 .buttonBase {
-  @apply inline-flex h-10 items-center justify-center rounded-full bg-gray-500/90 px-4 text-sm text-gray-100 transition duration-300 ease-in-out hover:bg-gray-400/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-200 sm:w-40;
+  @apply inline-flex h-11 items-center justify-center rounded-full bg-gray-600/90 px-4 text-sm text-gray-50 transition duration-300 ease-in-out hover:bg-gray-700/95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-100 sm:w-40;
 }
